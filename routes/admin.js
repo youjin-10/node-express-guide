@@ -4,7 +4,7 @@ const express = require("express");
 const expressRouter = express.Router();
 
 expressRouter.get("/add-product", (req, res, next) => {
-  res.sendFile(path.join(__dirname, "../", "views", "add-product.html"));
+  res.sendFile(path.join(__dirname, "..", "views", "add-product.html"));
 });
 
 expressRouter.post("/product", (req, res, next) => {
