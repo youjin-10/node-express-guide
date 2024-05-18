@@ -9,6 +9,10 @@ const shopRoutes = require("./routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// directly forward to file system (can access & read)
+// grant access to 'public' folder
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 
