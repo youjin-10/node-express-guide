@@ -9,10 +9,15 @@ const expressRouter = express.Router();
 // get (not 'use')
 expressRouter.get("/", (req, res, next) => {
   console.log(adminData.products);
+  const products = adminData.products;
   // res.sendFile(path.join(rootDir, "views", "shop.html"));
   res.render("shop", {
-    docTitle: "-Shop-",
-    prods: adminData.products,
+    prods: products,
+    pageTitle: "Shop",
+    path: "/",
+    hasProducts: products.length > 0,
+    activeShop: true,
+    productCSS: true,
   });
 });
 
