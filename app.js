@@ -3,17 +3,18 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
+app.set("view engine", "pug");
 
-const adminRoutes = require("./routes/admin");
+const adminData = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // directly forward to file system (can access & read)
-// grant access to 'public' folder
+// grant access txo 'public' folder
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/admin", adminRoutes);
+app.use("/admin", adminData.routes);
 app.use(shopRoutes);
 
 // 404
